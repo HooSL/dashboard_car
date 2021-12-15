@@ -11,17 +11,19 @@ import joblib
 def run_ml_app():
     st.subheader('Machine Learning 예측')
 
+    df = pd.read_csv('data/Car_purchasing_Data.csv',encoding='ISO-8859-1')
+
     #1. 유저한테 데이터를 입력받습니다.
     gender = st.radio('성별을 입력하세요.',['남자','여자'])
     if gender == '남자':
         gender_number = 1
     elif gender == '여자':
         gender_number = 0
-
-    age = st.number_input('나이 입력',min_value=1,max_value=120)
-    salary = st.number_input('연봉 입력',min_value=10000)
-    debt = st.number_input('카드 빚 입력',min_value=0)
-    worth = st.number_input('자산 입력',min_value=10000)
+    print(df.columns)
+    age = st.number_input('나이 입력',min_value=df['Age'].min(),max_value=df['Age'].max())
+    salary = st.number_input('연봉 입력',min_value=df['Annual Salary'].min(), max_value=df['Annual Salary'].max())
+    debt = st.number_input('카드 빚 입력',min_value=df['Credit Card Debt'].min(), max_value=df['Credit Card Debt'].max())
+    worth = st.number_input('자산 입력',min_value=df['Net Worth'].min(), max_value=df['Net Worth'].max())
 
     #2. 모델에 예측한다.
 
@@ -51,5 +53,5 @@ def run_ml_app():
     btn = st.button('예측 결과 보기')
     #3-2. 결과 소수점 뒤 한자리까지만
     if btn :
-        st.write('예측 결과 ${} 의 차를 살 수 있습니다.'.format(round(y_pred[0,0],2)))
+        st.write('예측 결과 ${} 의 차를 살 수 있습니다.'.format(round(y_pred[0,0],1)))
         
