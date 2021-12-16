@@ -50,7 +50,7 @@ def run_eda_app():
         fig1 = sns.pairplot(data = df_corr[selected_corr])
         st.pyplot(fig1)
 
-    #4-2. 유저가 컬럼을 선택하지 않은 경우
+    #4-3. 유저가 컬럼을 선택하지 않은 경우
     else :
         st.write('선택한 컬럼이 없습니다.')
 
