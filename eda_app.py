@@ -10,7 +10,7 @@ def run_eda_app():
     st.subheader('EDA화면 입니다.')
 
     #1. csv파일 가져오기
-    df = pd.read_csv('data/Car_purchasing_Data.csv',encoding='ISO-8859-1')
+    df = pd.read_csv('data/Car_Purchasing_Data.csv',encoding='ISO-8859-1')
 
     #2. 3개중 하나 선택하는 동그란 버튼 설정
     radio_menu = ['데이터 프레임','통계치']

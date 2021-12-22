@@ -11,7 +11,7 @@ import joblib
 def run_ml_app():
     st.subheader('Machine Learning 예측')
 
-    df = pd.read_csv('data/Car_purchasing_Data.csv',encoding='ISO-8859-1')
+    df = pd.read_csv('data/Car_Purchasing_Data.csv',encoding='ISO-8859-1')
 
     #1. 유저한테 데이터를 입력받습니다.
     gender = st.radio('성별을 입력하세요.',['남자','여자'])
